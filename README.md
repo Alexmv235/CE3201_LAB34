@@ -15,6 +15,7 @@ Entrega de Ejercicios prácticos del Laboratorio#4 del curso CE3201 Taller de Di
 - Ejercicio 2: Factorial de X
 
 **Fecha:** 21 de mayo de 2025
+**Profesor:** Jeferson González Gómez ( <jgonzalez@itcr.ac.cr> )
 
 ---
 
