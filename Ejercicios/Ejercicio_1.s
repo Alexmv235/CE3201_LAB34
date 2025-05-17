@@ -18,7 +18,7 @@ _start:
 
     	BL init_index       // R0 = 0
     	BL init_array       // Llena el arreglo
-   	 BL init_index       // R0 = 0
+   	BL init_index       // R0 = 0
     	BL comparador       // Funcion de comparador
 
    	 // syscall exit (Linux ABI)
