@@ -13,17 +13,17 @@
 // Returns: Código de salida 0 al sistema operativo
 // _______________________________________________________
 _start:
-    MOV R2, #0x1000      // Dirección base del arreglo
-	MOV R5, #3			// Valor constante escogido
+    MOV R2, #0x1000     // Dirección base del arreglo
+	MOV R5, #3          // Valor constante escogido
 
-    BL init_index        // R0 = 0
-    BL init_array        // Llena el arreglo
-    BL init_index        // R0 = 0
-    BL comparador         // Funcion de comparador
+    BL init_index       // R0 = 0
+    BL init_array       // Llena el arreglo
+    BL init_index       // R0 = 0
+    BL comparador       // Funcion de comparador
 
     // syscall exit (Linux ABI)
-    MOV R7, #1           // syscall número 1: exit
-    MOV R0, #0           // código de salida
+    MOV R7, #1          // syscall número 1: exit
+    MOV R0, #0          // código de salida
     SVC #0
 
 return:
@@ -53,8 +53,8 @@ init_array:
 init_loop:
     CMP R0, #10
     BGE return
-    ADD R1, R0, #1      // R1 = 0x1 + índice
-    STRB R1, [R2, R0]      // Guardar byte en memoria
+    ADD R1, R0, #1          // R1 = 0x1 + índice
+    STRB R1, [R2, R0]       // Guardar byte en memoria
     ADD R0, R0, #1
     B init_loop
 
@@ -69,20 +69,20 @@ init_loop:
 // _______________________________________________________
 comparador:
 loop_mi:
-    CMP R0, #10  			//Comparador IF del arreglo i<=10
+    CMP R0, #10             //Comparador IF del arreglo i<=10
     BGE return
 
-    LDRB R1, [R2, R0]      	// Cargar item de arreglo
-    CMP R1,R5				// Verifica si es igual a la constante
+    LDRB R1, [R2, R0]       // Cargar item de arreglo
+    CMP R1,R5               // Verifica si es igual a la constante
 	BEQ es_igual			
 	B no_igual
 
 es_igual:
-	MUL R1, R1, R5			//array[ i ]=array[i]*y
+	MUL R1, R1, R5          //array[ i ]=array[i]*y
 	B siguiente
 	
 no_igual:
-	ADD R1, R1, R5			//array[ i ]=array[i]+
+	ADD R1, R1, R5          //array[ i ]=array[i]+
 	B siguiente
 	
 siguiente:
