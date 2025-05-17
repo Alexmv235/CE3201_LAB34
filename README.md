@@ -13,6 +13,7 @@ Entrega de Ejercicios prácticos del Laboratorio#4 del curso CE3201 Taller de Di
 **Laboratorio 4:** Codigo ensamblador - ARMv4
 - Ejercicio 1: Comparador de arreglos
 - Ejercicio 2: Factorial de X
+- Ejercicio 3: Contador de VGA y Teclado
 
 **Fecha:** 21 de mayo de 2025
 
