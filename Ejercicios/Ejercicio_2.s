@@ -13,7 +13,7 @@
 // Returns: Código de salida 0 al sistema operativo
 // _______________________________________________________
 _start:
-    MOV R2, #0x1000		// Dirección base del arreglo
+	MOV R2, #0x1000		// Dirección base del arreglo
 	
 	MOV R1, #3			// Valor#1 = 3
 	BL factorial_x
@@ -29,11 +29,10 @@ _start:
 	STR R0, [R2,#8]		// Salida#3 = 0x375F00
     
     
-
-    // syscall exit (Linux ABI)
-    MOV R7, #1			// syscall número 1: exit
-    MOV R0, #0			// código de salida
-    SVC #0
+	// syscall exit (Linux ABI)
+	MOV R7, #1			// syscall número 1: exit
+	MOV R0, #0			// código de salida
+	SVC #0
 
 
 
@@ -56,5 +55,5 @@ loop:
 	B loop				// Vuelve a la etiqueta loop	
 
 return:
-    MOV PC, LR
+	MOV PC, LR
 
