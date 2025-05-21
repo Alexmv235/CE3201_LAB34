@@ -50,7 +50,8 @@ factorial_x:
 loop:
 	CMP R1,#1		// Compara si el valor es 1, ya que el factorial de 1 es 1 y ahí termina la recursión
 	BEQ return		// Si es igual a 1, salta a la etiqueta return
-	MUL R0, R0, R1		// Multiplica el resultado por el valor actual
+	ADD R6, R0, #0
+	MUL R0, R6, R1		// Multiplica el resultado por el valor actual
 	ADD R1, R1, #-1		// Decrementa el valor en 1
 	B loop			// Vuelve a la etiqueta loop
 

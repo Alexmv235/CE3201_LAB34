@@ -78,7 +78,8 @@ loop_mi:
 	B no_igual
 
 es_igual:
-	MUL R1, R1, R5          //array[ i ]=array[i]*y
+	MOV R6, R1		// Copia R1 en un registro temporal
+	MUL R1, R6, R5		//array[ i ]=array[i]*y
 	B siguiente
 
 no_igual:
