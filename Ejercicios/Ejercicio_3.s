@@ -13,41 +13,41 @@
 // Returns: Código de salida 0 al sistema operativo
 // _______________________________________________________
 _start:
-    // Inicializar direcciones de memoria
+	// Inicializar direcciones de memoria
 	MOV R0, #0
-	MOV R1, #0x1000     // Dirección de lectura del teclado
-	MOV R2, #0x2000     // Dirección del contador VGA
-	MOV R3, #0          // Valor inicial del contador
-	STR R3, [R2]        // Inicializar contador en 0
+	MOV R1, #0x1000		// Dirección de lectura del teclado
+	MOV R2, #0x2000		// Dirección del contador VGA
+	MOV R3, #0		// Valor inicial del contador
+	STR R3, [R2]		// Inicializar contador en 0
 
-    // Valores de prueba para simulación (5 iteraciones)
-	MOV R4, #0xE048     // Flecha arriba
-	STR R4, [R1]        // Primera prueba: arriba
+	// Valores de prueba para simulación (5 iteraciones)
+	MOV R4, #0xE048     	// Flecha arriba
+	STR R4, [R1]        	// Primera prueba: arriba
 	BL vga_controller
 
-	MOV R4, #0xE050     // Flecha abajo
-	STR R4, [R1]    // Segunda prueba: abajo
+	MOV R4, #0xE050     	// Flecha abajo
+	STR R4, [R1]    	// Segunda prueba: abajo
 	BL vga_controller
 
-	MOV R4, #0xE048     // Flecha arriba
-	STR R4, [R1]    // Tercera prueba: arriba
+	MOV R4, #0xE048     	// Flecha arriba
+	STR R4, [R1]    	// Tercera prueba: arriba
 	BL vga_controller
 
- 	MOV R4, #0xE048     // Flecha arriba
- 	STR R4, [R1]    // Tercera prueba: arriba
+ 	MOV R4, #0xE048     	// Flecha arriba
+ 	STR R4, [R1]    	// Tercera prueba: arriba
  	BL vga_controller
 
-	MOV R4, #0xFFFF     // Tecla inválida
-	STR R4, [R1]   // Cuarta prueba: inválida
+	MOV R4, #0xFFFF     	// Tecla inválida
+	STR R4, [R1]   		// Cuarta prueba: inválida
 	BL vga_controller
 
-	MOV R4, #0xE050     // Flecha abajo
-	STR R4, [R1]   // Quinta prueba: abajo
+	MOV R4, #0xE050     	// Flecha abajo
+	STR R4, [R1]   		// Quinta prueba: abajo
 	BL vga_controller
 
-    // Salir del programa
-	MOV R7, #1          // syscall número 1: exit
- 	MOV R0, #0          // código de salida
+	// Salir del programa
+	MOV R7, #1          	// syscall número 1: exit
+ 	MOV R0, #0          	// código de salida
 	SVC #0
 
 
