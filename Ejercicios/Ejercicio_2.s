@@ -27,8 +27,9 @@ _start:
 	MOV R1, #10			// Valor#3 = 10
 	BL factorial_x
 	STR R0, [R2,#8]		// Salida#3 = 0x375F00
-    
-    
+
+
+
 	// syscall exit (Linux ABI)
 	MOV R7, #1			// syscall número 1: exit
 	MOV R0, #0			// código de salida
@@ -41,18 +42,17 @@ _start:
 // Descripción: Calcula el resultado del factorial de un numero X
 // Params:
 //      R1: registro - Numero a calcular el factorial
-// Returns: 
+// Returns:
 //      R0: registro - Resultado del factorial
 // _____________________________________________________
 factorial_x:
 	MOV R0, #1
-	
 loop:
 	CMP R1,#1			// Compara si el valor es 1, ya que el factorial de 1 es 1 y ahí termina la recursión
 	BEQ return			// Si es igual a 1, salta a la etiqueta return
 	MUL R0, R0, R1		// Multiplica el resultado por el valor actual
 	ADD R1, R1, #-1		// Decrementa el valor en 1
-	B loop				// Vuelve a la etiqueta loop	
+	B loop				// Vuelve a la etiqueta loop
 
 return:
 	MOV PC, LR
