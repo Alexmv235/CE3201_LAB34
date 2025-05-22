@@ -73,7 +73,8 @@ loop_mi:
 	BGE return
 
 	LDRB R1, [R2, R0]       // Cargar item de arreglo
-	CMP R1,R5               // Verifica si es igual a la constante
+	CMP R1,R5               // Verifica si es igual o mayor
+	BGT es_igual
 	BEQ es_igual
 	B no_igual
 
